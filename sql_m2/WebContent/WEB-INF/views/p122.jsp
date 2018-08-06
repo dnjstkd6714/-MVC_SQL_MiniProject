@@ -6,16 +6,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>p122</title>
-<style>
-	tr, td, th{
-	border:1px solid #353535;
-	}
-</style>
 </head>
 <body>
-	<table>
+	<div class="page-header">
+  		<h1>SQL이 보이는 그림책으로 모델2 만들기 <small>p122</small></h1>
+	</div>
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>케이크 이름</th>
