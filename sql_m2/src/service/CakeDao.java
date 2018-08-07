@@ -36,25 +36,73 @@ public class CakeDao {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} if(resultSet != null) {
-			try {
-				resultSet.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} if(preparedStatement != null) {
-			try {
-				preparedStatement.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} if(connection != null) {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}		
+		} finally {
+			if(resultSet != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} if(preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}	
+		}
 		return list;		
+	}
+	
+	/* 메소드 설명
+	 * 매개변수 : 없음
+	 * 리턴값 : 특정조건(DB cake 테이블 중 price(가격)이 2500원 이상인 케이크 중 제일 싼 케이크)의 가격을 정수형태로 리턴
+	 * 메소드 용도 : 2500원 이상의 케이크 중 제일 가격이 저렴한 케이크의 가격을 조회할 때 사용
+	 * Cake 클래스 프로퍼티 : String name, int price
+	 */
+	public int selectSpecificConditionsMinimumCake() {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		int cakeMinimumPrice = 0;
+		try {										
+			Class.forName("com.mysql.jdbc.Driver");	
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sql_m2?useUnicode=true&characterEncoding=utf-8", "root", "java0000");
+			preparedStatement = connection.prepareStatement("select min(price) as price from (select name,price from tbl_cake where price >= 2500) as c_price");
+			resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			cakeMinimumPrice = resultSet.getInt(1);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(resultSet != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} if(preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}	
+		return cakeMinimumPrice;
 	}
 }

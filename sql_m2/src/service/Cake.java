@@ -8,8 +8,8 @@
 package service;
 
 public class Cake {
-	private String name;
-	private int price;
+	private String name;				// 케이크 이름
+	private int price;					// 케이크 가격
 	
 	public Cake() {						// default 생성자 선언
 		super();						// 조상클래스 생성자 호출, 사용자가 별도로 상속한 클래스가 없을 때는 최상위  object클래스를 상속함
