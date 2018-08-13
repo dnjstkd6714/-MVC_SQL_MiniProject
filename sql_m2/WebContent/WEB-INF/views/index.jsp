@@ -20,6 +20,7 @@
 		<li><a href="<%=request.getContextPath() %>/P124Controller">p124쿼리 사용 페이지 요청</a></li>
 		<li><a href="<%=request.getContextPath() %>/P125Controller">p125쿼리 사용 페이지 요청</a></li>
 		<li><a href="<%=request.getContextPath() %>/P143Controller">p143쿼리 사용 페이지 요청</a></li>
+		<li><a href="<%=request.getContextPath() %>/P154Controller">p154쿼리 사용 페이지 요청</a></li>
 	</ol>
 </body>
 </html>
